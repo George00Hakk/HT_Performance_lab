@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class task4 {
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); //src/Task4/File1.txt
         String s = sc.nextLine();
         System.out.println(Void(s));
     }
