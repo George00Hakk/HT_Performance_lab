@@ -7,10 +7,18 @@ import java.util.stream.Collectors;
 
 public class task1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        System.out.println(way(n, m));
+        if (args.length < 2) {
+            return;
+        }
+
+        try {
+            int n = Integer.parseInt(args[0]);
+            int m = Integer.parseInt(args[1]);
+
+            System.out.println(way(n, m));
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException(e.getMessage());
+        }
     }
 
 

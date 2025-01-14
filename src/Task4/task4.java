@@ -10,13 +10,22 @@ import java.util.Scanner;
 public class task4 {
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in); //src/Task4/File1.txt
-        String s = sc.nextLine();
-        System.out.println(Void(s));
+        if (args.length < 1) {
+            return;
+        }
+
+        try {
+            Path file1 = Path.of(args[0]);
+            System.out.println(Void(file1));
+
+
+        } catch (NumberFormatException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
-    public static int Void(String s) throws IOException {
-        List<String> lines = Files.readAllLines(Path.of(s));
+    public static int Void(Path s) throws IOException {
+        List<String> lines = Files.readAllLines(s);
         int[] nums = new int[lines.size()];
         for (int i = 0; i < lines.size(); i++) {
             nums[i] = (Integer.parseInt(lines.get(i).trim()));

@@ -7,9 +7,22 @@ import java.util.List;
 
 public class task2 {
     public static void main(String[] args) throws IOException {
-        Path file1 = Path.of("src/Task2/File1.txt");
-        Path file2 = Path.of("src/Task2/File2.txt");
-        circle(file1,file2);
+        if (args.length < 2) {
+            return;
+        }
+
+        try {
+            Path file1 = Path.of(args[0]);
+            Path file2 = Path.of(args[1]);
+            circle(file1,file2);
+
+
+        } catch (NumberFormatException e) {
+            throw new IOException(e.getMessage());
+        }
+        //Path file1 = Path.of("src/Task2/File1.txt");
+        //Path file2 = Path.of("src/Task2/File2.txt");
+
 
 
     }

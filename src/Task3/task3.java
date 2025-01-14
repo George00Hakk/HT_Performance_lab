@@ -11,10 +11,20 @@ import java.util.Map;
 
 public class task3 {
     public static void main(String[] args) throws IOException {
-        Path valuesPath = Path.of("src/Task3/values.json");
-        Path reportPath = Path.of("src/Task3/report.json");
-        Path testsPath = Path.of("src/Task3/tests.json");
-        test(testsPath,valuesPath,reportPath);
+        if (args.length < 3) {
+            return;
+        }
+
+        try {
+            Path file1 = Path.of(args[0]);
+            Path file2 = Path.of(args[1]);
+            Path file3 = Path.of(args[2]);
+            test(file1,file2,file3);
+
+
+        } catch (NumberFormatException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
     public static void test(Path testsPath, Path valuesPath, Path reportPath) throws IOException {
